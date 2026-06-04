@@ -13,8 +13,10 @@ const datosGrupoA = {
       gc: 0,
       dg: 0,
       pts: 0,
-      historia: "...",
-      analisis: "...",
+      historia:
+        "Anfitrión histórico de la Copa del Mundo por tercera ocasión (1970, 1986 y 2026). La selección mexicana busca romper el mito de los octavos de final cobijada por su apasionada afición en el emblemático e histórico Estadio Azteca.",
+      analisis:
+        "Al jugar en territorio propio, la motivación y la presión se encuentran al máximo nivel. Su fortaleza principal radicará en el dinamismo por las bandas y en la solidez colectiva que logren consolidar como locales.",
     },
     {
       nombre: "Sudáfrica",
@@ -28,8 +30,10 @@ const datosGrupoA = {
       gc: 0,
       dg: 0,
       pts: 0,
-      historia: "...",
-      analisis: "...",
+      historia:
+        "Recordados por ser los maravillosos y alegres organizadores de la Copa del Mundo en 2010. Los 'Bafana Bafana' regresan a la máxima fiesta del fútbol internacional dispuestos a demostrar el enorme crecimiento táctico de su balompié.",
+      analisis:
+        "Un conjunto sumamente físico, veloz en las transiciones de defensa a ataque y con gran despliegue atlético. Buscarán complicar la salida de los rivales apostando por contragolpes letales explotando las bandas.",
     },
     {
       nombre: "Corea del Sur",
@@ -43,8 +47,10 @@ const datosGrupoA = {
       gc: 0,
       dg: 0,
       pts: 0,
-      historia: "...",
-      analisis: "...",
+      historia:
+        "La selección más regular y dominante del continente asiático en la historia de las citas mundialistas. Siempre recordados a nivel global por su increíble e histórica hazaña al alcanzar las semifinales en el Mundial de 2002.",
+      analisis:
+        "Destacan por una disciplina táctica inquebrantable y un ritmo de juego incansable. Su velocidad para desdoblar líneas ofensivas representará un peligro constante para las estructuras defensivas del grupo.",
     },
     {
       nombre: "Chequia",
@@ -58,8 +64,10 @@ const datosGrupoA = {
       gc: 0,
       dg: 0,
       pts: 0,
-      historia: "...",
-      analisis: "...",
+      historia:
+        "Orgullosa heredera de los logros de la antigua Checoslovaquia, escuadra histórica que alcanzó dos subcampeonatos del mundo (1934 y 1962). Se caracterizan por su rigurosidad colectiva y su escuela competitiva.",
+      analisis:
+        "Un bloque europeo clásico con excelente juego aéreo, riguroso orden en la mitad de la cancha y gran juego físico. Su principal argumento será desgastar la posesión rival y liquidar mediante jugadas de estrategia fija.",
     },
   ],
   calendario: [
