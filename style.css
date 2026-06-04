@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  background-color: #0f0c1e;
+  background-image: linear-gradient(
+    rgba(15, 12, 30, 0.95),
+    rgba(15, 12, 30, 0.95)
+  );
+  color: #f0f4f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header {
+  text-align: center;
+  padding: 3rem 1rem;
+  border-bottom: 3px solid #d4af37;
+  background: rgba(26, 15, 46, 0.4);
+}
+header h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 2px 5px 20px rgba(212, 175, 55, 0.4);
+  letter-spacing: 1px;
+}
+header p {
+  color: #e0a96d;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+.seccion-panel {
+  background: rgba(25, 20, 45, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 2.5rem;
+}
+.titulo-sub {
+  font-size: 1.4rem;
+  color: #d4af37;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+  padding-bottom: 8px;
+}
+/* GRID DE NAVEGACIÓN DE GRUPOS */
+.grid-navegacion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.card-grupo {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 4px solid #d4af37;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.card-grupo:hover {
+  transform: translateY(-5px);
+  background: rgba(212, 175, 55, 0.1);
+}
+.card-grupo i {
+  font-size: 2rem;
+  color: #e0a96d;
+}
+.card-grupo h3 {
+  font-size: 1.3rem;
+}
+.card-grupo span {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+/* LISTA DE MIEMBROS */
+.lista-miembros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.miembro-item {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.miembro-info strong {
+  color: #ffffff;
+  display: block;
+  font-size: 0.95rem;
+}
+.miembro-info span {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+.badge-rol {
+  font-size: 0.75rem;
+  background: rgba(212, 175, 55, 0.15);
+  color: #ffd700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  background: rgba(15, 12, 30, 0.6);
+}
