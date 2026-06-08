@@ -6,6 +6,10 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-image:
     linear-gradient(rgba(15, 12, 30, 0.9), rgba(15, 12, 30, 0.9)),
@@ -49,6 +53,27 @@ header p {
   font-size: 1.8rem;
   color: #e0a96d;
   font-weight: 800;
+}
+
+/* boton de desplazamiento */
+.btn-scroll {
+  margin-top: 24px;
+  text-decoration: none;
+  color: #d4af37;
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  animation: flotarSuave 1s infinite ease-in-out;
+}
+
+/* efecto arriba y abajo */
+@keyframes flotarSuave {
+  0%, 100% {
+    transform: translateY(0); /* Posición original */
+  }
+  50% {
+    transform: translateY(12px); /* Baja 12 píxeles suavemente */
+  }
 }
 
 /* CONTENEDOR PRINCIPAL */
