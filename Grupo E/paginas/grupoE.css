@@ -13,7 +13,11 @@ html {
 body {
   background-image:
     linear-gradient(rgba(15, 12, 30, 0.9), rgba(15, 12, 30, 0.9)),
+<<<<<<< HEAD
     url("../img/fondo.png");
+=======
+    url("../img/fondo.jpg");
+>>>>>>> 79031430b85881882165794bd6523b59d03e170f
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
