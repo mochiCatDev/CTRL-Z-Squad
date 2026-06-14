@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integrantes - CTRL + Z Squad</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    .grid-integrantes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .card-integrante {
+      background: rgba(25, 20, 45, 0.85);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 4px solid #d4af37;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .card-integrante:hover {
+      transform: translateY(-5px);
+    }
+    .avatar-wrapper {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 1rem auto;
+    }
+    .foto-integrante {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #d4af37;
+      display: block;
+    }
+    .avatar-emoji {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 34px;
+      height: 34px;
+      background: #d4af37;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      border: 2px solid #0f0c1e;
+    }
+    .card-integrante h3 {
+      color: #ffffff;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    .card-integrante .github-link {
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 0.8rem;
+    }
+    .card-integrante .github-link:hover {
+      text-decoration: underline;
+    }
+    .dato-extra {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 0.3rem;
+    }
+    .dato-extra i {
+      color: #d4af37;
+      margin-right: 5px;
+    }
+    .badge-grupo {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      background: rgba(212,175,55,0.15);
+      color: #ffd700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+    .btn-volver {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #d4af37;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      padding: 8px 16px;
+      border: 1px solid rgba(212,175,55,0.3);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-volver:hover {
+      background: #d4af37;
+      color: #0f0c1e;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Equipo CTRL + Z Squad</h1>
+    <p><i class="fa-brands fa-github"></i> Integrantes del Proyecto Mundial 2026</p>
+  </header>
+
+  <div class="container">
+
+    <a href="index.html" class="btn-volver">
+      <i class="fa-solid fa-angle-left"></i> Volver al inicio
+    </a>
+
+    <section class="seccion-panel">
+      <h2 class="titulo-sub"><i class="fas fa-users"></i> Miembros del Equipo</h2>
+
+      <div class="grid-integrantes">
+
+        <!-- ======= DILAN SOLORZANO ======= -->
+        <div class="card-integrante">
+          <div class="avatar-wrapper">
+            <img
+              src="https://github.com/mochiCatDev.png"
+              alt="Foto de Dilan Solorzano"
+              class="foto-integrante"
+            />
+            <div class="avatar-emoji">🐱</div>
+          </div>
+          <h3>Dilan Solorzano</h3>
+          <a href="https://github.com/mochiCatDev" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> @mochiCatDev
+          </a>
+          <p class="dato-extra"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: por agregar</p>
+          <span class="badge-grupo">⭐ Líder · Grupo A</span>
+        </div>
+
+        <!-- ======= ALEXANDRA RAMIREZ — TÚ ======= -->
+        <div class="card-integrante">
+          <div class="avatar-wrapper">
+            <img
+              src="https://github.com/Alexandra-Code.png"
+              alt="Foto de Alexandra Ramirez"
+              class="foto-integrante"
+            />
+            <div class="avatar-emoji">💻</div>
+          </div>
+          <h3>Alexandra Ramirez</h3>
+          <a href="https://github.com/Alexandra-Code" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> @Alexandra-Code
+          </a>
+          <p class="dato-extra"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: 05/01/1995</p>
+          <span class="badge-grupo">Grupo B</span>
+        </div>
+
+        <!-- ======= ALICE VIOLET ======= -->
+        <div class="card-integrante">
+          <div class="avatar-wrapper">
+            <img
+              src="https://github.com/aliceviolet696.png"
+              alt="Foto de Alice Violet"
+              class="foto-integrante"
+            />
+            <div class="avatar-emoji">🌸</div>
+          </div>
+          <h3>Alice Violet</h3>
+          <a href="https://github.com/aliceviolet696" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> @aliceviolet696
+          </a>
+          <p class="dato-extra"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: por agregar</p>
+          <span class="badge-grupo">Grupo C</span>
+        </div>
+
+        <!-- ======= JOSHUA VACA ======= -->
+        <div class="card-integrante">
+          <div class="avatar-wrapper">
+            <img
+              src="https://github.com/parzhival.png"
+              alt="Foto de Joshua Vaca"
+              class="foto-integrante"
+            />
+            <div class="avatar-emoji">🎮</div>
+          </div>
+          <h3>Joshua Vaca</h3>
+          <a href="https://github.com/parzhival" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> @parzhival
+          </a>
+          <p class="dato-extra"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: por agregar</p>
+          <span class="badge-grupo">Grupo D</span>
+        </div>
+
+        <!-- ======= JOSUE CEVALLOS ======= -->
+        <div class="card-integrante">
+          <div class="avatar-wrapper">
+            <img
+              src="https://github.com/Spixt583.png"
+              alt="Foto de Josue Cevallos"
+              class="foto-integrante"
+            />
+            <div class="avatar-emoji">⚡</div>
+          </div>
+          <h3>Josue Cevallos</h3>
+          <a href="https://github.com/Spixt583" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> @Spixt583
+          </a>
+          <p class="dato-extra"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: por agregar</p>
+          <span class="badge-grupo">Grupo E</span>
+        </div>
+
+        <!-- ======= RONALD SANCHEZ ======= -->
+        <div class="card-integrante">
+          <div class="avatar-wrapper">
+            <img
+              src="https://github.com/XxRogeoxX.png"
+              alt="Foto de Ronald Sanchez"
+              class="foto-integrante"
+            />
+            <div class="avatar-emoji">🚀</div>
+          </div>
+          <h3>Ronald Sanchez</h3>
+          <a href="https://github.com/XxRogeoxX" target="_blank" class="github-link">
+            <i class="fa-brands fa-github"></i> @XxRogeoxX
+          </a>
+          <p class="dato-extra"><i class="fa-solid fa-cake-candles"></i> Fecha de nacimiento: por agregar</p>
+          <span class="badge-grupo">Grupo F</span>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 - CTRL+Z Squad · FIFA World Cup 2026</p>
+  </footer>
+
+</body>
+</html>
