@@ -1,7 +1,6 @@
 // ============================================================
-// DATOS COMPLETOS - MUNDIAL FIFA 2026
-// Todos los 12 grupos con equipos, historia, análisis y partidos correctos
-// Fuente: FIFA / ESPN / Wikipedia
+// DATOS - GRUPO E - MUNDIAL FIFA 2026
+// Alemania, Curaçao, Costa de Marfil, Ecuador
 // ============================================================
 
 const gruposMundial = {
@@ -66,10 +65,89 @@ const gruposMundial = {
     ],
   },
 };
+
 // ============================================================
-// VARIABLE DE GRUPO ACTIVO — Cambia esta letra para el grupo deseado
+// INFO COMPLEMENTARIA - GRUPO E
+// Sedes/estadios donde juega el grupo + curiosidades del grupo
 // ============================================================
-let grupoActivo = "E"; // Cambia a "A", "B", "C", "D", "F", "G", "H", "I", "J", "K", "L"
+
+const infoComplementariaGrupoE = {
+  sedes: [
+    {
+      ciudad: "Houston, Texas, EE.UU.",
+      estadio: "NRG Stadium",
+      capacidad: "72,220",
+      icono: "fas fa-landmark",
+      detalle:
+        "Escenario del partido inaugural del grupo entre Alemania y Curaçao. Cuenta con techo retráctil y es la casa de los Houston Texans de la NFL, ofreciendo confort climático ideal para el verano texano.",
+    },
+    {
+      ciudad: "East Rutherford, Nueva Jersey, EE.UU.",
+      estadio: "MetLife Stadium (New York New Jersey Stadium)",
+      capacidad: "82,500",
+      icono: "fas fa-trophy",
+      detalle:
+        "El recinto más grande e icónico del torneo, sede de la gran final el 19 de julio. Albergará el decisivo Ecuador vs. Alemania de la última jornada del Grupo E.",
+    },
+    {
+      ciudad: "Toronto, Canadá",
+      estadio: "BMO Field (Toronto Stadium)",
+      capacidad: "45,736",
+      icono: "fas fa-mountain",
+      detalle:
+        "Tras una renovación de 120 millones de dólares, este estadio canadiense recibirá el duelo Alemania vs. Costa de Marfil, una de las citas más atractivas de la segunda jornada.",
+    },
+    {
+      ciudad: "Kansas City, Misuri, EE.UU.",
+      estadio: "Arrowhead Stadium (Kansas City Stadium)",
+      capacidad: "76,400",
+      icono: "fas fa-volume-up",
+      detalle:
+        "Reconocido por el Récord Guinness como el estadio al aire libre más ruidoso del mundo, será testigo del Ecuador vs. Curaçao, un partido clave para definir el camino hacia la siguiente ronda.",
+    },
+    {
+      ciudad: "Filadelfia, Pensilvania, EE.UU.",
+      estadio: "Lincoln Financial Field (Philadelphia Stadium)",
+      capacidad: "69,796",
+      icono: "fas fa-volcano",
+      detalle:
+        "Casa de los Philadelphia Eagles, este recinto recibirá dos partidos del Grupo E: el debut de Costa de Marfil ante Ecuador y el cierre entre Curaçao y Costa de Marfil.",
+    },
+  ],
+  curiosidades: [
+    {
+      titulo: "La nación más pequeña en debutar",
+      icono: "fas fa-star",
+      desc: "Curaçao hizo historia al convertirse en la nación más pequeña por población (alrededor de 156,000 habitantes) en clasificarse jamás a una Copa del Mundo, un hito histórico para el fútbol caribeño y de la CONCACAF.",
+    },
+    {
+      titulo: "Alemania, gigante del Mundial",
+      icono: "fas fa-history",
+      desc: "Con cuatro estrellas (1954, 1974, 1990 y 2014), Alemania es la selección europea con más títulos mundialistas junto a Italia. Llegan a 2026 buscando redimirse tras quedar eliminados en fase de grupos en la edición anterior.",
+    },
+    {
+      titulo: "Costa de Marfil, potencia africana",
+      icono: "fas fa-chart-line",
+      desc: "Los 'Elefantes' se consagraron como una de las grandes fuerzas del continente africano tras coronarse campeones de la Copa Africana de Naciones en 2015 y, de manera más reciente, en 2024 como anfitriones del torneo.",
+    },
+    {
+      titulo: "El llamado del histórico Enner Valencia",
+      icono: "fas fa-futbol",
+      desc: "Ecuador llega a su cuarta Copa del Mundo con Enner Valencia como bandera ofensiva, el goleador histórico de la 'Tri' en justas mundialistas, recordado por su gran actuación en el Mundial de Catar 2022.",
+    },
+    {
+      titulo: "Un grupo de cuatro continentes",
+      icono: "fas fa-globe",
+      desc: "El Grupo E reúne a representantes de cuatro confederaciones distintas: UEFA (Alemania), CONCACAF (Curaçao), CAF (Costa de Marfil) y CONMEBOL (Ecuador), una de las combinaciones más diversas del sorteo.",
+    },
+  ],
+};
+
+
+// ============================================================
+// VARIABLE DE GRUPO ACTIVO
+// ============================================================
+let grupoActivo = "E";
 
 let datosGrupoActual = gruposMundial[grupoActivo];
 
@@ -146,25 +224,49 @@ function cargarCalendario() {
   });
 }
 
-// Función para cambiar de grupo dinámicamente
-function cambiarGrupo(letra) {
-  if (gruposMundial[letra]) {
-    grupoActivo = letra;
-    datosGrupoActual = gruposMundial[letra];
-    cargarTabla();
-    cargarEquipos();
-    cargarCalendario();
-    // Actualizar título del grupo si existe ese elemento en el HTML
-    const tituloGrupo = document.getElementById("titulo-grupo");
-    if (tituloGrupo) tituloGrupo.textContent = gruposMundial[letra].nombre;
-  }
+function cargarSedes() {
+  const contenedor = document.getElementById("contenedor-sedes");
+  if (!contenedor) return;
+  contenedor.innerHTML = "";
+
+  infoComplementariaGrupoE.sedes.forEach((sede) => {
+    const card = document.createElement("div");
+    card.classList.add("jornada-card");
+    card.innerHTML = `
+      <div class="jornada-titulo"><i class="${sede.icono}"></i> ${sede.estadio}</div>
+      <div class="partido">
+        <div class="partido-equipos" style="font-size: 1rem; color: #d4af37;"><i class="fas fa-map-marker-alt"></i> ${sede.ciudad}</div>
+        <div class="partido-detalles" style="margin: 6px 0;"><i class="fas fa-users"></i> <strong>Capacidad:</strong> ${sede.capacidad} espectadores</div>
+        <p style="font-size: 0.9rem; color: #cbd5e1; text-align: justify; margin-top: 8px; line-height: 1.4;">${sede.detalle}</p>
+      </div>
+    `;
+    contenedor.appendChild(card);
+  });
+}
+
+function cargarCuriosidades() {
+  const contenedor = document.getElementById("contenedor-curiosidades");
+  if (!contenedor) return;
+  contenedor.innerHTML = "";
+
+  infoComplementariaGrupoE.curiosidades.forEach((curio) => {
+    const bloque = document.createElement("div");
+    bloque.classList.add("partido");
+    bloque.style.marginBottom = "15px";
+    bloque.innerHTML = `
+      <div class="partido-equipos" style="color: #e0a96d; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
+        <i class="${curio.icono}"></i> ${curio.titulo}
+      </div>
+      <p style="font-size: 0.95rem; color: #cbd5e1; text-align: justify; margin-top: 6px; line-height: 1.5;">${curio.desc}</p>
+    `;
+    contenedor.appendChild(bloque);
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   cargarTabla();
   cargarEquipos();
   cargarCalendario();
-  // Si tienes funciones de sedes/curiosidades en tu HTML, las puedes mantener
-  if (typeof cargarSedes === "function") cargarSedes();
-  if (typeof cargarCuriosidades === "function") cargarCuriosidades();
+  cargarSedes();
+  cargarCuriosidades();
 });
