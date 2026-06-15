@@ -1,73 +1,60 @@
-// Objecto de datos con Historia, Analisis y Partidos
 const datosGrupoA = {
   equipos: [
     {
       nombre: "México",
       flag: `<img src="https://flagcdn.com/w40/mx.png" alt="México" class="flag-icon">`,
       conf: "CONCACAF",
-      pj: 0,
-      pg: 0,
+      pj: 1,
+      pg: 1,
       pe: 0,
       pp: 0,
-      gf: 0,
+      gf: 2,
       gc: 0,
-      dg: 0,
-      pts: 0,
-      historia:
-        "Anfitrión histórico de la Copa del Mundo por tercera ocasión (1970, 1986 y 2026). La selección mexicana busca romper el mito de los octavos de final cobijada por su apasionada afición en el emblemático e histórico Estadio Azteca.",
-      analisis:
-        "Al jugar en territorio propio, la motivación y la presión se encuentran al máximo nivel. Su fortaleza principal radicará en el dinamismo por las bandas y en la solidez colectiva que logren consolidar como locales.",
-    },
-    {
-      nombre: "Sudáfrica",
-      flag: `<img src="https://flagcdn.com/w40/za.png" alt="Sudáfrica" class="flag-icon">`,
-      conf: "CAF",
-      pj: 0,
-      pg: 0,
-      pe: 0,
-      pp: 0,
-      gf: 0,
-      gc: 0,
-      dg: 0,
-      pts: 0,
-      historia:
-        "Recordados por ser los maravillosos y alegres organizadores de la Copa del Mundo en 2010. Los 'Bafana Bafana' regresan a la máxima fiesta del fútbol internacional dispuestos a demostrar el enorme crecimiento táctico de su balompié.",
-      analisis:
-        "Un conjunto sumamente físico, veloz en las transiciones de defensa a ataque y con gran despliegue atlético. Buscarán complicar la salida de los rivales apostando por contragolpes letales explotando las bandas.",
+      dg: 2,
+      pts: 3,
+      url: "../equipos/mexico/mexico.html",
     },
     {
       nombre: "Corea del Sur",
       flag: `<img src="https://flagcdn.com/w40/kr.png" alt="Corea del Sur" class="flag-icon">`,
       conf: "AFC",
-      pj: 0,
-      pg: 0,
+      pj: 1,
+      pg: 1,
       pe: 0,
       pp: 0,
-      gf: 0,
-      gc: 0,
-      dg: 0,
-      pts: 0,
-      historia:
-        "La selección más regular y dominante del continente asiático en la historia de las citas mundialistas. Siempre recordados a nivel global por su increíble e histórica hazaña al alcanzar las semifinales en el Mundial de 2002.",
-      analisis:
-        "Destacan por una disciplina táctica inquebrantable y un ritmo de juego incansable. Su velocidad para desdoblar líneas ofensivas representará un peligro constante para las estructuras defensivas del grupo.",
+      gf: 2,
+      gc: 1,
+      dg: 1,
+      pts: 3,
+      url: "../equipos/corea_del_sur/corea_del_sur.html",
     },
     {
       nombre: "Chequia",
       flag: `<img src="https://flagcdn.com/w40/cz.png" alt="Chequia" class="flag-icon">`,
       conf: "UEFA",
-      pj: 0,
+      pj: 1,
       pg: 0,
       pe: 0,
-      pp: 0,
-      gf: 0,
-      gc: 0,
-      dg: 0,
+      pp: 1,
+      gf: 1,
+      gc: 2,
+      dg: -1,
       pts: 0,
-      historia:
-        "Orgullosa heredera de los logros de la antigua Checoslovaquia, escuadra histórica que alcanzó dos subcampeonatos del mundo (1934 y 1962). Se caracterizan por su rigurosidad colectiva y su escuela competitiva.",
-      analisis:
-        "Un bloque europeo clásico con excelente juego aéreo, riguroso orden en la mitad de la cancha y gran juego físico. Su principal argumento será desgastar la posesión rival y liquidar mediante jugadas de estrategia fija.",
+      url: "../equipos/chequia/chequia.html",
+    },
+    {
+      nombre: "Sudáfrica",
+      flag: `<img src="https://flagcdn.com/w40/za.png" alt="Sudáfrica" class="flag-icon">`,
+      conf: "CAF",
+      pj: 1,
+      pg: 0,
+      pe: 0,
+      pp: 1,
+      gf: 0,
+      gc: 2,
+      dg: -2,
+      pts: 0,
+      url: "../equipos/sudafrica/sudafrica.html",
     },
   ],
   calendario: [
@@ -118,6 +105,7 @@ const datosGrupoA = {
     },
   ],
 };
+
 const infoComplementariaGrupoA = {
   sedes: [
     {
@@ -164,9 +152,9 @@ const infoComplementariaGrupoA = {
   ],
 };
 
-// Renderizar tabla de posiciones
 function cargarTabla() {
   const tbody = document.getElementById("tabla-cuerpo");
+  if (!tbody) return;
   tbody.innerHTML = "";
 
   datosGrupoA.equipos.forEach((eq, index) => {
@@ -187,9 +175,9 @@ function cargarTabla() {
   });
 }
 
-// Renderizar tarjetas de equipos
 function cargarEquipos() {
   const contenedor = document.getElementById("contenedor-equipos");
+  if (!contenedor) return;
   contenedor.innerHTML = "";
 
   datosGrupoA.equipos.forEach((eq) => {
@@ -200,24 +188,19 @@ function cargarEquipos() {
                 <h3>${eq.flag} ${eq.nombre}</h3>
                 <span class="confederacion">${eq.conf}</span>
             </div>
-            <div class="card-body">
-                <div class="info-bloque">
-                    <h4><i class="fas fa-history"></i> Historia</h4>
-                    <p>${eq.historia}</p>
-                </div>
-                <div class="info-bloque">
-                    <h4><i class="fas fa-chart-line"></i> Análisis Competitivo 2026</h4>
-                    <p>${eq.analisis}</p>
-                </div>
+            <div class="card-body" style="text-align: center; padding: 2rem 1.5rem;">
+                <a href="${eq.url}" class="btn-atras" style="position: static; display: inline-block; padding: 10px 20px; text-decoration: none;">
+                    Ver Detalle del Equipo <i class="fa-solid fa-angle-right" style="margin-left: 8px;"></i>
+                </a>
             </div>
         `;
     contenedor.appendChild(tarjeta);
   });
 }
 
-// Renderizar calendario
 function cargarCalendario() {
   const contenedor = document.getElementById("contenedor-calendario");
+  if (!contenedor) return;
   contenedor.innerHTML = "";
 
   datosGrupoA.calendario.forEach((jornada) => {
