@@ -5,71 +5,32 @@ const datosGrupoF = {
       nombre: "Argentina",
       flag: `<img src="https://flagcdn.com/w40/ar.png" alt="Argentina" class="flag-icon">`,
       conf: "CONMEBOL",
-      pj: 0,
-      pg: 0,
-      pe: 0,
-      pp: 0,
-      gf: 0,
-      gc: 0,
-      dg: 0,
-      pts: 0,
-      historia:
-        "La actual campeona del mundo llega a Norteamérica con la misión de defender su corona. Con una rica historia que incluye tres títulos mundiales (1978, 1986, 2022), la Albiceleste siempre es protagonista.",
-      analisis:
-        "Un equipo que combina el talento individual sudamericano con una estructura táctica muy sólida. Su mediocampo es dinámico y tienen gran facilidad para la posesión y el ataque por los pasillos interiores.",
+      pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+      url: "../equipos/argentina/argentina.html",
     },
     {
       nombre: "Suecia",
       flag: `<img src="https://flagcdn.com/w40/se.png" alt="Suecia" class="flag-icon">`,
       conf: "UEFA",
-      pj: 0,
-      pg: 0,
-      pe: 0,
-      pp: 0,
-      gf: 0,
-      gc: 0,
-      dg: 0,
-      pts: 0,
-      historia:
-        "Una de las selecciones europeas más clásicas, subcampeona en su propio Mundial en 1958. Han demostrado ser un rival rocoso y difícil de vencer en los grandes torneos internacionales.",
-      analisis:
-        "Destacan por su imponente físico, un bloque defensivo organizado y su peligro en las jugadas a balón parado. Buscarán cerrar espacios y aprovechar las transiciones rápidas.",
+      pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+      url: "../equipos/suecia/suecia.html",
     },
     {
       nombre: "Nigeria",
       flag: `<img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" class="flag-icon">`,
       conf: "CAF",
-      pj: 0,
-      pg: 0,
-      pe: 0,
-      pp: 0,
-      gf: 0,
-      gc: 0,
-      dg: 0,
-      pts: 0,
-      historia:
-        "Las 'Súper Águilas' son uno de los equipos más emblemáticos de África. Desde su deslumbrante debut en 1994, siempre aportan color, alegría y un fútbol ofensivo a las Copas del Mundo.",
-      analisis:
-        "Poseen una de las delanteras más veloces del torneo. Su juego se basa en el desborde por las bandas y la potencia física, aunque a veces sufren en la retrocesión defensiva.",
+      pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+      url: "../equipos/nigeria/nigeria.html",
     },
     {
       nombre: "Japón",
       flag: `<img src="https://flagcdn.com/w40/jp.png" alt="Japón" class="flag-icon">`,
       conf: "AFC",
-      pj: 0,
-      pg: 0,
-      pe: 0,
-      pp: 0,
-      gf: 0,
-      gc: 0,
-      dg: 0,
-      pts: 0,
-      historia:
-        "Los 'Samuráis Azules' son una potencia asiática consolidada. Han avanzado a octavos de final en múltiples ocasiones y son conocidos por su disciplina y crecimiento táctico sostenido.",
-      analisis:
-        "Un equipo incansable con una presión alta muy efectiva. Suelen mover el balón con mucha velocidad y tienen una técnica depurada, lo que les permite competir de tú a tú con cualquier rival.",
+      pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+      url: "../equipos/japon/japon.html",
     },
   ],
+  // ... (deja tu calendario intacto aquí) ...
   calendario: [
     {
       jornada: "Jornada 1",
@@ -191,6 +152,7 @@ function cargarTabla() {
 // Renderizar tarjetas de equipos
 function cargarEquipos() {
   const contenedor = document.getElementById("contenedor-equipos");
+  if (!contenedor) return;
   contenedor.innerHTML = "";
 
   datosGrupoF.equipos.forEach((eq) => {
@@ -201,21 +163,15 @@ function cargarEquipos() {
                 <h3>${eq.flag} ${eq.nombre}</h3>
                 <span class="confederacion">${eq.conf}</span>
             </div>
-            <div class="card-body">
-                <div class="info-bloque">
-                    <h4><i class="fas fa-history"></i> Historia</h4>
-                    <p>${eq.historia}</p>
-                </div>
-                <div class="info-bloque">
-                    <h4><i class="fas fa-chart-line"></i> Análisis Competitivo 2026</h4>
-                    <p>${eq.analisis}</p>
-                </div>
+            <div class="card-body" style="text-align: center; padding: 2rem 1.5rem;">
+                <a href="${eq.url}" class="btn-atras" style="position: static; display: inline-block; padding: 10px 20px; text-decoration: none;">
+                    Ver Detalle del Equipo <i class="fa-solid fa-angle-right" style="margin-left: 8px;"></i>
+                </a>
             </div>
         `;
     contenedor.appendChild(tarjeta);
   });
 }
-
 // Renderizar calendario
 function cargarCalendario() {
   const contenedor = document.getElementById("contenedor-calendario");
