@@ -11,33 +11,37 @@ const gruposMundial = {
         nombre: "Alemania",
         flag: `<img src="https://flagcdn.com/h40/de.png" alt="Alemania" class="flag-icon">`,
         conf: "UEFA",
-        pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+        pj: 1, pg: 1, pe: 0, pp: 0, gf: 7, gc: 1, dg: "+6", pts: 3,
         historia: "Cuatro veces campeones del mundo (1954, 1974, 1990 y 2014), la 'Mannschaft' es una de las selecciones más laureadas de la historia. Buscan reivindicarse tras una decepcionante fase de grupos en Qatar 2022.",
         analisis: "Alemania presentará un equipo renovado con juventud y experiencia equilibradas. Su presión organizada, la salida de balón limpia desde atrás y la potencia en ataque los convierten en favoritos claros del grupo.",
+        url: "../equipos/alemania/alemania.html",
       },
       {
         nombre: "Curaçao",
         flag: `<img src="https://flagcdn.com/h40/cw.png" alt="Curaçao" class="flag-icon">`,
         conf: "CONCACAF",
-        pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+        pj: 1, pg: 0, pe: 0, pp: 1, gf: 1, gc: 7, dg: -6, pts: 0,
         historia: "Historia pura: Curaçao es la nación más pequeña por población (156,000 habitantes) que jamás ha clasificado a una Copa del Mundo. Su debut es uno de los hitos más grandes del fútbol CONCACAF moderno.",
         analisis: "Comandados por el técnico Dick Advocaat y con el capitán Leandro Bacuna y su hermano Juninho como referentes, apostarán por una organización defensiva férrea e intentarán aprovechar cada ocasión al contraataque.",
+        url: "../equipos/curaçao/curaçao.html",
       },
       {
         nombre: "Costa de Marfil",
         flag: `<img src="https://flagcdn.com/h40/ci.png" alt="Costa de Marfil" class="flag-icon">`,
         conf: "CAF",
-        pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+        pj: 1, pg: 1, pe: 0, pp: 0, gf: 1, gc: 0, dg: "+1", pts: 3,
         historia: "Los 'Elefantes' son una de las grandes potencias del fútbol africano. Campeones de África en 2015 y 2024, cuentan con generaciones de jugadores que militan en los mejores clubes de Europa.",
         analisis: "Equipo atlético, veloz y con gran calidad técnica en ataque. Con jugadores como Seko Fofana y una delantera dinámica, buscarán complicar la vida a Alemania y alzarse como los mejores de África en el torneo.",
+        url: "../equipos/costa_de_marfil/costaDeMarfil.html",
       },
       {
         nombre: "Ecuador",
         flag: `<img src="https://flagcdn.com/h40/ec.png" alt="Ecuador" class="flag-icon">`,
         conf: "CONMEBOL",
-        pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0, dg: 0, pts: 0,
+        pj: 1, pg: 0, pe: 0, pp: 1, gf: 0, gc: 1, dg: -1, pts: 0,
         historia: "La 'Tri' llega a su cuarta Copa del Mundo. Memorables por inaugurar el Mundial de Alemania 2006 con victoria ante el anfitrión, y por clasificar con grandes actuaciones en las difíciles Eliminatorias Sudamericanas.",
         analisis: "Ecuador es un equipo físico y ordenado, con una columna vertebral sólida y experiencia mundialista. Su apuesta por la verticalidad y el juego directo a Enner Valencia, su referente histórico, es su señal de identidad.",
+        url: "../equipos/ecuador/ecuador.html",
       },
     ],
     calendario: [
@@ -159,7 +163,23 @@ let datosGrupoActual = gruposMundial[grupoActivo];
 function cargarTabla() {
   const tbody = document.getElementById("tabla-cuerpo");
   tbody.innerHTML = "";
-  datosGrupoActual.equipos.forEach((eq, index) => {
+
+  const equiposOrdenados = [...datosGrupoActual.equipos].sort((a, b) => {
+    if (b.pts !== a.pts) {
+      return b.pts - a.pts;
+    }
+
+    const dgA = parseInt(a.dg);
+    const dgB = parseInt(b.dg);
+
+    if (dgB !== dgA) {
+      return dgB - dgA;
+    }
+
+    return b.gf - a.gf;
+  });
+
+  equiposOrdenados.forEach((eq, index) => {
     const fila = document.createElement("tr");
     fila.innerHTML = `
       <td><span class="badge-pos">${index + 1}</span></td>
@@ -179,7 +199,9 @@ function cargarTabla() {
 
 function cargarEquipos() {
   const contenedor = document.getElementById("contenedor-equipos");
+  if (!contenedor) return;
   contenedor.innerHTML = "";
+
   datosGrupoActual.equipos.forEach((eq) => {
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("tarjeta-equipo");
@@ -188,15 +210,10 @@ function cargarEquipos() {
         <h3>${eq.flag} ${eq.nombre}</h3>
         <span class="confederacion">${eq.conf}</span>
       </div>
-      <div class="card-body">
-        <div class="info-bloque">
-          <h4><i class="fas fa-history"></i> Historia</h4>
-          <p>${eq.historia}</p>
-        </div>
-        <div class="info-bloque">
-          <h4><i class="fas fa-chart-line"></i> Análisis Competitivo 2026</h4>
-          <p>${eq.analisis}</p>
-        </div>
+      <div class="card-body" style="text-align: center; padding: 2rem 1.5rem;">
+        <a href="${eq.url}" class="btn-atras" style="position: static; display: inline-block; padding: 10px 20px; text-decoration: none;">
+          Ver Detalle del Equipo <i class="fa-solid fa-angle-right" style="margin-left: 8px;"></i>
+        </a>
       </div>
     `;
     contenedor.appendChild(tarjeta);
@@ -205,20 +222,25 @@ function cargarEquipos() {
 
 function cargarCalendario() {
   const contenedor = document.getElementById("contenedor-calendario");
+  if (!contenedor) return;
   contenedor.innerHTML = "";
+
   datosGrupoActual.calendario.forEach((jornada) => {
     const cardJornada = document.createElement("div");
     cardJornada.classList.add("jornada-card");
+
     let partidosHTML = `<div class="jornada-titulo">${jornada.jornada}</div>`;
+
     jornada.partidos.forEach((partido) => {
       partidosHTML += `
-        <div class="partido">
-          <div class="partido-equipos">${partido.rivales}</div>
-          <div class="partido-detalles"><i class="far fa-calendar-alt"></i> ${partido.fecha}</div>
-          <div class="partido-detalles"><i class="fas fa-map-marker-alt"></i> ${partido.sede}</div>
-        </div>
-      `;
+                <div class="partido">
+                    <div class="partido-equipos">${partido.rivales}</div>
+                    <div class="partido-detalles"><i class="far fa-calendar-alt"></i> ${partido.fecha}</div>
+                    <div class="partido-detalles"><i class="fas fa-map-marker-alt"></i> ${partido.sede}</div>
+                </div>
+            `;
     });
+
     cardJornada.innerHTML = partidosHTML;
     contenedor.appendChild(cardJornada);
   });
