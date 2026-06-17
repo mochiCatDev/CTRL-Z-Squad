@@ -1,4 +1,3 @@
-
 const datosGrupoD = {
   equipos: [
     {
@@ -13,7 +12,7 @@ const datosGrupoD = {
       gc: 0,
       dg: 0,
       pts: 0,
-      url: "../equipos/estados_unidos/estados_unidos.html",
+      url: "../equipos/Estados_unidos/estados_unidos.html",
     },
     {
       nombre: "Paraguay",
@@ -27,7 +26,7 @@ const datosGrupoD = {
       gc: 0,
       dg: 0,
       pts: 0,
-      url: "../equipos/paraguay/paraguay.html",
+      url: "../equipos/Paraguay/paraguay.html",
     },
     {
       nombre: "Australia",
@@ -41,7 +40,7 @@ const datosGrupoD = {
       gc: 0,
       dg: 0,
       pts: 0,
-      url: "../equipos/australia/australia.html",
+      url: "../equipos/Australia/australia.html",
     },
     {
       nombre: "Turquía",
@@ -55,7 +54,7 @@ const datosGrupoD = {
       gc: 0,
       dg: 0,
       pts: 0,
-      url: "../equipos/turquia/turquia.html",
+      url: "../equipos/Turquia/turquia.html",
     },
   ],
   calendario: [
