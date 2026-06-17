@@ -13,7 +13,7 @@ html {
 body {
   background-image:
     linear-gradient(rgba(15, 12, 30, 0.9), rgba(15, 12, 30, 0.9)),
-    url("../img/mundial.png");
+    url("../fondo/mundial.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
