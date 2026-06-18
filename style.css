@@ -96,38 +96,7 @@ header p {
   font-size: 0.85rem;
   color: #94a3b8;
 }
-/* LISTA DE MIEMBROS */
-.lista-miembros {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-}
-.miembro-item {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 10px 15px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.miembro-info strong {
-  color: #ffffff;
-  display: block;
-  font-size: 0.95rem;
-}
-.miembro-info span {
-  color: #94a3b8;
-  font-size: 0.85rem;
-}
-.badge-rol {
-  font-size: 0.75rem;
-  background: rgba(212, 175, 55, 0.15);
-  color: #ffd700;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-weight: 600;
-}
+
 footer {
   text-align: center;
   padding: 2rem;
