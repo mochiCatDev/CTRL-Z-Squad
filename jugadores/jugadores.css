@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card-cromo {
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: white; /* Color basico por defecto, ya que JS le pondra los colores correspondientes */
+}
+
+.card-cromo img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
