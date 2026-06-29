@@ -10,26 +10,7 @@
     <header>
       <h1>Álbum del Mundial</h1>
     </header>
-
-    <main>
-      <section class="seccion-calendario">
-        <h2 class="seccion-titulo">Álbum de Jugadores</h2>
-
-        <div id="stats-jugadores" class="stats-bar">
-          <span>Total Goles: <strong id="total-goles">0</strong></span>
-          <span>Desbloqueados: <strong id="contador-desbloqueados">0</strong> / <strong id="total-cromos">0</strong></span>
-        </div>
-
-        <div class="filtros-bar">
-          <input type="text" id="buscador-jugador" placeholder="Buscar jugador por nombre..." />
-          <select id="filtro-pais">
-            <option value="">Todos los países</option>
-          </select>
-        </div>
-
-        <div id="album-jugadores" class="album-grid"></div>
-      </section>
-    </main>
+    <main id="contenedor-cromos" class="album-grid"></main>
 
     <script src="jugadores.js"></script>
   </body>
